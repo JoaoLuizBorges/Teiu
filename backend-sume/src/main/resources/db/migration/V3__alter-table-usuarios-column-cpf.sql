@@ -1,0 +1,1 @@
+alter table usuarios add foreign key (cpf) references cliente(cpf);
