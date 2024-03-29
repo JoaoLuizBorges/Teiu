@@ -34,7 +34,8 @@ public class ClienteController {
         return ResponseEntity.ok(new DadosDetalhamentoCliente(cliente));
     }
 
-    @GetMapping("/{id}")
+    @DeleteMapping("/{id}")
+    @Transactional
     public ResponseEntity excluir(@PathVariable Long id) {
         var cliente = repository.getReferenceById(id);
         cliente.excluir();

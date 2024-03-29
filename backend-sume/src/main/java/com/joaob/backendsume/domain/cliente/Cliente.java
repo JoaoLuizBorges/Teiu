@@ -14,10 +14,12 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "id")
 public class Cliente {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String cpf;
     private String serial;
-    private boolean ativo;
+    private Boolean ativo;
 
     public Cliente(DadosCadastroCliente dados) {
         this.ativo = true;
