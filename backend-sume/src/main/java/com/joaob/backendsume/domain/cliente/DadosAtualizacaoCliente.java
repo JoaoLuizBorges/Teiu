@@ -1,5 +1,6 @@
 package com.joaob.backendsume.domain.cliente;
 
+import com.joaob.backendsume.domain.endereco.DadosEndereco;
 import jakarta.validation.constraints.NotNull;
 
 public record DadosAtualizacaoCliente(
@@ -10,6 +11,7 @@ public record DadosAtualizacaoCliente(
         String cpf,
 
         @NotNull
-        String serial
-) {
+        String serial,
+
+        DadosEndereco endereco) {
 }

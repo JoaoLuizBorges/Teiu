@@ -20,5 +20,16 @@ public class Produto {
     private Long id;
     private String serial;
     private String modelo;
+    private Boolean ativo;
+
+    public Produto(DadosCadastroProduto dados) {
+        this.ativo = true;
+        this.serial = dados.serial();
+        this.modelo = dados.modelo();
+    }
+
+    public void excluir() {
+        this.ativo = false;
+    }
 
 }
