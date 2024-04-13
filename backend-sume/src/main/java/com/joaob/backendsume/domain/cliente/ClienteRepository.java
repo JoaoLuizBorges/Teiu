@@ -13,7 +13,7 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
             select p.ativo
             from Cliente p
             where
-            p.cpf = :cpf
+            p.cpf_cnpj = :cpf_cnpj
             """)
     Boolean findAtivoByCpf(String cpf);
 }

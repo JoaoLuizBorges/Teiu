@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.br.CNPJ;
+import org.hibernate.validator.constraints.br.CPF;
 
 @Table(name = "cliente")
 @Entity(name = "Cliente")
@@ -18,7 +20,11 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String cpf;
+
+    @CNPJ
+    @CPF
+    private String cpf_cnpj;
+    private String ident;
     private String serial;
     private Boolean ativo;
     private String usuario;
@@ -31,14 +37,15 @@ public class Cliente {
         this.usuario = dados.usuario();
         this.senha = dados.senha();
         this.ativo = true;
-        this.cpf = dados.cpf();
+        this.ident = dados.ident();
+        this.cpf_cnpj = dados.cpf_cnpj();
         this.serial = dados.serial();
         this.endereco = new Endereco(dados.endereco());
     }
 
     public void atualizarInformacoes(DadosAtualizacaoCliente dados) {
-        if (dados.cpf() != null) {
-            this.cpf = dados.cpf();
+        if (dados.cpf_cnpj() != null) {
+            this.cpf_cnpj = dados.cpf_cnpj();
         }
         if (dados.serial() != null) {
             this.serial = dados.serial();

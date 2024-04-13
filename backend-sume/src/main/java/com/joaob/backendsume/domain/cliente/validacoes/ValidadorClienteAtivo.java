@@ -11,7 +11,7 @@ public class ValidadorClienteAtivo {
     private ClienteRepository repository;
 
     public void validar(DadosDetalhamentoCliente dados) {
-        var clienteAtivo = repository.findAtivoByCpf(dados.cpf());
+        var clienteAtivo = repository.findAtivoByCpf(dados.cpf_cnpj());
         if(!clienteAtivo) {
             throw new ValidacaoException("Usuário não é ativo");
         }

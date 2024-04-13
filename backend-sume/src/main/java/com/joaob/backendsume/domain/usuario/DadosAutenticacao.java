@@ -1,4 +1,4 @@
 package com.joaob.backendsume.domain.usuario;
 
-public record DadosAutenticacao(String login, String nome, String cpf, String senha) {
+public record DadosAutenticacao(String login, String senha) {
 }

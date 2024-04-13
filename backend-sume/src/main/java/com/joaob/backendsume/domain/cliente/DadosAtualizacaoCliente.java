@@ -8,7 +8,7 @@ public record DadosAtualizacaoCliente(
         @NotNull
         Long id,
         @NotNull
-        String cpf,
+        String cpf_cnpj,
 
         @NotNull
         String serial,

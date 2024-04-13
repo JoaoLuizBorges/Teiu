@@ -16,8 +16,9 @@ public record DadosCadastroCliente(
         String senha,
 
         @NotBlank
-        @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2}")
-        String cpf,
+        String ident,
+        @NotBlank
+        String cpf_cnpj,
 
         @NotBlank
         String serial,
