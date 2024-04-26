@@ -90,8 +90,11 @@ public class ScansController {
     }
 
     @GetMapping
-    public ResponseEntity <Page<DadosListagemScan>> listar(@PageableDefault(size = 5, sort = {"serial"})Pageable paginacao) {
-        var page = repository.findBySerial(paginacao).map(DadosListagemScan::new);
+    public ResponseEntity <Page<DadosListagemScan>> listar(@PageableDefault(size = 5, sort = {"serial"}) Pageable paginacao) {
+        Scans scan = new Scans();
+        var dados = scan.getSerial();
+
+        var page = repository.findBySerial(dados, paginacao).map(DadosListagemScan::new);
         return ResponseEntity.ok(page);
     }
 

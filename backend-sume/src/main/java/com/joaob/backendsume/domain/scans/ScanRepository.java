@@ -11,7 +11,7 @@ import java.util.List;
 
 public interface ScanRepository extends JpaRepository<Scans, Long> {
 
-    Page<Scans> findBySerial(Pageable paginacao);
+    Page<Scans> findBySerial(String serial, Pageable paginacao);
 
     @Transactional
     void deleteBySerial(String serial);
